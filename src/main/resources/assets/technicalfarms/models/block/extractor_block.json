@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "technicalfarms:block/extractor_block_side",
+    "north": "technicalfarms:block/extractor_block_side",
+    "south": "technicalfarms:block/extractor_block_side",
+    "east": "technicalfarms:block/extractor_block_side",
+    "west": "technicalfarms:block/extractor_block_side",
+    "up": "technicalfarms:block/extractor_block_top",
+    "down": "technicalfarms:block/extractor_block_bottom"
+  }
+}
