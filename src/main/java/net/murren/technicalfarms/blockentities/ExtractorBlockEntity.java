@@ -6,7 +6,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.Hopper;
 import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.Iterator;
 
@@ -25,7 +24,7 @@ public class ExtractorBlockEntity extends HopperBlockEntity {
             return false;
         } else {
             itemEntity = (ItemEntity)var3.next();
-            itemEntity.position().add(new Vec3(0, -1.2f, 0));
+            itemEntity.moveTo(itemEntity.position().x, itemEntity.position().y - 1.2f, itemEntity.position().z);
         }
         return true;
     }
