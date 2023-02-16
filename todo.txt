@@ -1,6 +1,2 @@
 bugs:
-- items go in inventory instead of being moved
-- hitbox is not cube
-- pickup area not full sized
-- textures do not load
--
+- items not being moved OR registered

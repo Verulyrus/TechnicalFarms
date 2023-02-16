@@ -3,30 +3,23 @@ package net.murren.technicalfarms.blockentities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.Hopper;
-import net.minecraft.world.level.block.entity.HopperBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+import net.murren.technicalfarms.blockentities.Interfaces.Extractor;
 
-import java.util.Iterator;
+import java.util.List;
 
-public class ExtractorBlockEntity extends HopperBlockEntity {
+import static net.murren.technicalfarms.registers.BlockEntityTypes.EXTRACTOR;
 
+public class ExtractorBlockEntity extends BlockEntity implements Extractor {
     public ExtractorBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(blockPos, blockState);
-    }
-    public static void pushItemsTick(Level level, BlockPos pos, BlockState state, HopperBlockEntity blockEntity) {
-          suckInItems(level, blockEntity);
-    }
-    public static boolean suckInItems(Level level, Hopper hopper) {
-        Iterator var3 = getItemsAtAndAbove(level, hopper).iterator();
-        ItemEntity itemEntity;
-        if (!var3.hasNext()) {
-            return false;
-        } else {
-            itemEntity = (ItemEntity)var3.next();
-            itemEntity.moveTo(itemEntity.position().x, itemEntity.position().y - 1.2f, itemEntity.position().z);
-        }
-        return true;
+        super(EXTRACTOR, blockPos, blockState);
     }
 
+    public static void tick(Level level, BlockPos pos, BlockState state1, ExtractorBlockEntity be) {
+        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, new AABB(pos.getX() - 0.5f, pos.getY(), pos.getZ() - 0.5f, pos.getX() + 0.5f, pos.getY() + 2f, pos.getZ() + 0.5f));
+        items.forEach(item -> item.moveTo(new Vec3(pos.getX(), pos.below().getY(), pos.getZ())));
+    }
 }

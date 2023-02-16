@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "tutorial:block/extractor_block" }
+    "": { "model": "technicalfarms:block/extractor_block" }
   }
 }
