@@ -18,7 +18,6 @@ import org.jetbrains.annotations.Nullable;
 import static net.murren.technicalfarms.registers.BlockEntityTypes.EXTRACTOR;
 
 public class ExtractorBlock extends BaseEntityBlock implements EntityBlock {
-    public static final DirectionProperty DIRECTION = DirectionProperty.create("direction", (direction) -> direction != Direction.UP);
 
     public ExtractorBlock(Properties properties) {
         super(properties);
