@@ -19,7 +19,9 @@ public class ExtractorBlockEntity extends BlockEntity implements Extractor {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state1, ExtractorBlockEntity be) {
-        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, new AABB(pos.getX() - 0.5f, pos.getY(), pos.getZ() - 0.5f, pos.getX() + 0.5f, pos.getY() + 2f, pos.getZ() + 0.5f));
-        items.forEach(item -> item.moveTo(new Vec3(pos.getX(), pos.below().getY(), pos.getZ())));
+        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, new AABB(pos.above()));
+        items.forEach(item -> {
+            item.moveTo(pos.below(), 0, 0);
+        });
     }
 }
