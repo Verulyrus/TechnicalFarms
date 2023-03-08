@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "technicalfarms:block/conveyor_block",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "technicalfarms:block/conveyor_block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "technicalfarms:block/conveyor_block"
+    },
+    "facing=west": {
+      "model": "technicalfarms:block/conveyor_block",
+      "y": 90
+    }
+  }
+}

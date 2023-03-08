@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/template_orientable_trapdoor_bottom",
+  "textures": {
+    "particle": "technicalfarms:block/conveyor_block_top",
+    "north": "technicalfarms:block/conveyor_block_front",
+    "south": "technicalfarms:block/conveyor_block_front",
+    "east": "technicalfarms:block/conveyor_block_side",
+    "west": "technicalfarms:block/conveyor_block_side",
+    "up": "technicalfarms:block/conveyor_block_top",
+    "down": "technicalfarms:block/conveyor_block_bottom"
+  }
+}
