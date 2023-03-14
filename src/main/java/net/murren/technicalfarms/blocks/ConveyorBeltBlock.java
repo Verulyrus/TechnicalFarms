@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.murren.technicalfarms.blockentities.ConveyorBeltBlockEntity;
 import org.jetbrains.annotations.Nullable;
@@ -23,14 +24,14 @@ public class ConveyorBeltBlock extends BaseEntityBlock implements EntityBlock {
 
     public ConveyorBeltBlock(BlockBehaviour.Properties properties) {
         super(properties);
+        registerDefaultState(defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
     }
-
 
 
     public static final DirectionProperty DIRECTION = DirectionProperty.create("direction", (direction) -> direction != Direction.UP);
 
     @Override
-    protected void appendProperties(StateDefinition.Builder<Block, BlockState> builder)
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {
         builder.add(DIRECTION);
     }
@@ -48,4 +49,5 @@ public class ConveyorBeltBlock extends BaseEntityBlock implements EntityBlock {
 
     @Override
     public RenderShape getRenderShape(BlockState state){ return RenderShape.MODEL; }
+
 }
